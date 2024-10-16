@@ -1,0 +1,390 @@
+.contact-first-section {
+    background-color: #1f1f1e;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    
+
+}
+
+.contact-app {
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    padding-right: 8%;
+}
+
+.send-message{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-content: center;
+}
+
+.contact-pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 55%;
+    margin-bottom: 5%;
+}
+
+.compact-pic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    left: 0;
+    margin-bottom: 5%;
+    display: none;
+}
+
+.work-intro{
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-size: 56px;
+    color: #ECE5D3;
+    margin-bottom: 10%;
+    margin-top: 0;
+    user-select: none;
+    width: fit-content;
+}
+
+.form-area {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    color: #979388;
+}
+
+.form-field {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-field::before {
+    content: attr(data-number); /* Add a custom data attribute to set numbering */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+    color: #ECE5D3;
+    font-weight: 200;
+}
+
+.form-label {
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    color: #D9D9D9;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+
+.form-input {
+    width: 89%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ECE5D3;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    padding-left: 35px;
+}
+
+.form-input::placeholder {
+    color: #979388;
+    font-size: 14px;
+}
+
+.form-input:focus {
+    border-bottom: 1px solid #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-textarea {
+    width: 89%;
+    height: 150px;
+    padding: 10px;
+    resize: vertical;
+    border-radius: 5px;
+    border-bottom: 1px solid #ECE5D3;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 35px;
+  }
+  
+.contact-details{
+    width: fit-content;
+    flex-direction: column;
+    align-content: start;
+    align-items: flex-start;
+}
+
+.arrow-down{
+    color: #979388;
+    font-size: 45px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-down:hover{
+    color: #ECE5D3;
+    transform: rotate(10deg);
+}
+
+.contact-text{
+    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    text-align: right;
+    margin-bottom: 2%;
+    margin-top: 8%
+}
+
+.contact-deet{
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    text-align: right;
+    padding: 4% 0;
+}
+
+.email{
+    margin-bottom: 20%;
+}
+
+.email a{
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+.email a:hover {
+    text-decoration: underline; 
+}
+
+.time{
+    margin-top: 20%;
+}
+
+
+
+.form-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 1s ease-in-out;
+    background-color: #979388;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    right: auto;
+    left: 82%;
+    bottom: 70px;
+    
+}
+
+.form-button::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ECE5D3;
+    color: #1f1f1e;
+    transition: top 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.form-button:hover::before {
+    top: 0; 
+}
+
+.form-button:hover {
+    transform: scale(1.1); 
+}
+
+.send-circle-text {
+    font-weight: bold;
+    position: absolute;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 3% 3%;
+    text-align: center;
+}
+
+.send-circle-text:before {
+    content: "Send it!";
+    color: #ECE5D3;
+    transition: color 1.5s ease-out, content 2s ease-out;
+    }
+    
+.form-button:hover .send-circle-text:before {
+    content: "Ready to send?" !important;
+    color: #1f1f1e !important;
+    
+}
+
+.number{
+    font-size: 12px;
+    color: #979388;
+    padding-right: 20px;
+}
+
+
+@media (max-width: 960px){
+    .contact-pic{
+        margin-left: 75%;
+    }
+
+    .work-intro{
+        font-size: 48px;
+    }
+    .form-button {
+        left: 70%;
+    }
+}
+
+
+@media (max-width: 770px) {}
+    .form-button {
+    left: 60%;
+}
+
+
+@media (max-width: 735px) {
+    .contact-app{
+        justify-content: space-between;
+    }
+    .send-message {
+        width: 100%;
+        padding-right: 8%;
+    }
+
+    .contact-app {
+        flex-direction: column; 
+        gap: 0; 
+    }
+
+    .contact-details {
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: start;
+        gap: 10%;
+        
+    }
+
+    .form-label{
+        font-size: 16px;
+    }
+
+    .first-deet{
+        width: 100%;
+        
+        word-wrap: break-word;
+    }
+
+    .second-deet
+    {
+        width: 100%;
+    } 
+    .third-deet {
+        display: none;
+    }
+
+    .form-button {
+        width: 75px;
+        height: 75px;
+        position: relative;
+        bottom: 50px;
+        right: 0;
+        left: 76%;
+    }
+
+    .form-input {
+        width: 86%
+    }
+
+    .form-field {
+        margin-bottom: 15px;
+    }
+
+    .contact-deet{
+        text-align: left;
+        font-size: 12px;
+    }
+    .contact-text{
+        text-align: left;
+        font-size: 10px;
+    }
+
+    .form-textarea{
+        height: 60px;
+    }
+
+    .email{
+        margin-bottom: 0;
+    }
+    
+    .time{
+        margin-top: 0;
+    }
+
+    .arrow-down:hover{
+        transform: rotate(-45deg);
+    }
+    
+    .work-intro{
+        font-size: 46px;
+        line-height: 1;
+    }
+
+    .contact-pic{
+        display: none;
+        
+    }
+    .compact-pic{
+        display: block;
+        margin-bottom: 10%;
+    }
+
+    .container{
+        gap: 5%;
+    }
+
+    
+}
+
+
+@media (max-width: 460px) {
+    .form-textarea{
+        height: 80px;
+    }
+
+    .container{
+        align-items: center;
+        justify-content: center;
+    }
+    .arrow-down{
+        transform: rotate(-45deg);
+    }   
+}

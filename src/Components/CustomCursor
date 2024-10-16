@@ -1,0 +1,40 @@
+// CustomCursor.js
+import { useEffect } from "react";
+import "../Style/CustomCursor.css"; // Add custom styles if needed
+
+const CustomCursor = () => {
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor");
+
+    const moveCursor = (e) => {
+      cursor.style.left = `${e.pageX}px`;
+      cursor.style.top = `${e.pageY}px`;
+    };
+
+    const handleLinkHover = () => {
+      cursor.style.transform = "scale(1.5)";
+    };
+
+    const handleLinkLeave = () => {
+      cursor.style.transform = "scale(1)";
+    };
+
+    document.addEventListener("mousemove", moveCursor);
+    document.querySelectorAll("ul li a").forEach((link) => {
+      link.addEventListener("mouseenter", handleLinkHover);
+      link.addEventListener("mouseleave", handleLinkLeave);
+    });
+
+    return () => {
+      document.removeEventListener("mousemove", moveCursor);
+      document.querySelectorAll("ul li a").forEach((link) => {
+        link.removeEventListener("mouseenter", handleLinkHover);
+        link.removeEventListener("mouseleave", handleLinkLeave);
+      });
+    };
+  }, []);
+
+  return <div className="cursor"></div>;
+};
+
+export default CustomCursor;

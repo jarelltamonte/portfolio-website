@@ -1,0 +1,37 @@
+html, body {
+    /* overflow: hidden; */
+    height: 100%;
+  }
+
+.preloader{
+    height: 100%;
+    width: 100%;
+    background: #ECE5D3;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.preloader .texts-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 380px;
+    overflow: hidden;
+    color: #1F1F1E;
+    z-index: 100;
+}
+
+.preloader .texts-container span{
+    font-weight: 600px;
+    /* font-family: "Italianno", cursive; */
+    font-family: "Karma", sans-serif;
+    font-size: 30px;
+}
