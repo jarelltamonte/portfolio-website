@@ -68,7 +68,8 @@ body{
 
 .about-me-detail span {
     display: block;
-    margin-bottom: 10%; /* Adjust to increase/decrease the space */
+    margin-bottom: 10%; 
+    
 }
 
 .square {
@@ -97,14 +98,11 @@ body{
 }
   
 .education {
-    font-size: 18px;
-    font-family: "inter", sans-serif;
-    font-weight: 300;
+    font-size: 32px;
+    font-family: "italianno", sans-serif;
     margin-bottom: 3%;
-    color: #1f1f1e;
     background-color: #2a2a2a;
     color: #ECE5D3;
-    text-transform: uppercase;
     box-shadow: 3px 3px 3px #00000040;
     /* background-color: rgba(255, 255, 255, 0.050); 
     backdrop-filter: blur(8px);
@@ -151,7 +149,7 @@ body{
     top: 70%;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
     background-color: #1f1f1e; 
     z-index: 0; 
     overflow: hidden;
@@ -172,14 +170,6 @@ body{
     background-color: #1f1f1e;
 }
 
-@keyframes glow {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
 
 .school{
     font-family: "inter", sans-serif;
@@ -207,6 +197,20 @@ body{
     text-align: center;
     word-wrap: break-word;
     width: 90%;
+}
+
+.block{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    overflow: hidden;
+}
+
+.line-block{
+    animation: line-appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    overflow: hidden;
 }
 
 
@@ -299,4 +303,47 @@ body{
         font-size: 10px;
     }
 
+}
+
+
+@keyframes glow {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+@keyframes appear {
+      from{
+          opacity: 0;
+          scale: 0.5;
+      }
+      to{
+          opacity: 1;
+          scale: 1;
+      }
+}
+
+@keyframes line-appear {
+    from {
+      opacity: 0;
+      transform: translateX(-100%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1); /* End at the original position */
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 }

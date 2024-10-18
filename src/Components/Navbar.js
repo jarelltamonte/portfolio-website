@@ -12,7 +12,22 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Handle scrolling class for the navbar
+  // Close menu when clicking outside of the navbar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const navbar = document.querySelector(".navbar");
+      if (menuOpen && !navbar.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -64,7 +79,6 @@ const Navbar = () => {
     }));
   };
 
-  // Function to check if a link is active
   const isActive = (path) => location.pathname === path;
 
   return (

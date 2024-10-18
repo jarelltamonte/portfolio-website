@@ -52,10 +52,11 @@ const Contact = () => {
 
                 <div className="form-field">
                   <label htmlFor="message" className="form-label"><span className="number">03 </span>Your message</label>
-                  <input type="text" id="message" className="form-input form-textarea" rows="5" placeholder="Hi Jarell, can you help me with..." />
+                  <textarea type="text" id="message" className="form-input form-textarea" rows="5" placeholder="Hi Jarell, can you help me with..." />
                   <button type="submit" className="form-button"
                     onMouseMove={(e) => handleMouseMove(e, setPosition)}
                     onMouseLeave={() => handleMouseLeave(setPosition)}
+                    onClick={() => alert("This website is intended for commercial use only. Look for my contact details on the right")}
                     style={{
                     transform: `translate(${position.x * 0.1}px, ${position.y * 0.1}px)`,
                     transition: "transform 0.1s ease-out",

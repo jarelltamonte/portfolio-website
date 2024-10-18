@@ -1,4 +1,5 @@
 import me from "../images/Jarell Tamonte.jpg"
+import jarell from "../images/mepic.jpg"
 import "../Style/About.css"
 import {useState} from "react"
 
@@ -69,9 +70,9 @@ const About = () => {
               transform: `translate(${educPosition.x * 0.1}px, ${educPosition.y * 0.1}px)`,
               transition: "transform 0.1s ease-out",
             }}>Education</p>
-          <div className="card-line"></div>
+          <div className="card-line line-block"></div>
           <div className="card-layer">
-            <div className="card"
+            <div className="card block"
               onMouseMove={(e) => handleMouseMove(e, setC1Position)}
               onMouseLeave={() => handleMouseLeave(setC1Position)}
               style={{
@@ -82,7 +83,7 @@ const About = () => {
               <p className="school-year">2016-2020</p>
               <p className="award">Class Salutatorian <br/>(JHS)</p>
             </div>
-            <div className="card"
+            <div className="card block"
               onMouseMove={(e) => handleMouseMove(e, setC2Position)}
               onMouseLeave={() => handleMouseLeave(setC2Position)}
               style={{
@@ -93,7 +94,7 @@ const About = () => {
               <p className="school-year">2020-2022</p>
               <p className="award">Class Salutatorian (SHS)</p>
             </div>
-            <div className="card"
+            <div className="card block"
               onMouseMove={(e) => handleMouseMove(e, setC3Position)}
               onMouseLeave={() => handleMouseLeave(setC3Position)}
               style={{
@@ -104,7 +105,7 @@ const About = () => {
               <p className="school-year">2022-Present</p>
               <p className="award">Computer Science Student</p>
             </div>
-            <div className="card"
+            <div className="card block"
               onMouseMove={(e) => handleMouseMove(e, setC4Position)}
               onMouseLeave={() => handleMouseLeave(setC4Position)}
               style={{

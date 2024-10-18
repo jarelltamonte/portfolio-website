@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [resumePosition, setResumePosition] = useState({ x: 0, y: 0 });
+  const [workPosition, setWorkPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e, setPosition) => {
     const rect = e.target.getBoundingClientRect();
@@ -149,7 +150,7 @@ const Home = () => {
         </Link>
           <div className="vertical-line" ></div> {/* The vertical line */}
           <div className="about-text">
-            <p>
+            <p className="home-text-about">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
               animi aperiam rem modi iusto repellendus dolor perspiciatis saepe.
             </p>
@@ -157,7 +158,49 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="third-section"></div>
+      <div className="third-section">
+        <p className="gallery">Gallery</p>
+        <div className="third-first">
+          <div className="card-home">
+            <div className="card-image"></div>
+          </div>
+          <div className="card-home">
+            <div className="card-image"></div>
+          </div>
+          <div className="card-home">
+            <div className="card-image"></div>
+          </div>
+          <div className="card-home">
+            <div className="card-image"></div>
+          </div>
+
+        </div>
+        <div className="third-second">
+          <div className="card-home">
+              <div className="card-image"></div>
+            </div>
+            <div className="card-home">
+              <div className="card-image"></div>
+            </div>
+            <div className="card-home">
+              <div className="card-image"></div>
+            </div>
+            <div className="card-home">
+              <div className="card-image"></div>
+            </div>
+        </div>
+        <Link to="/work" className="more-work">
+          <button type="button" className="workButton" 
+                    onMouseMove={(e) => handleMouseMove(e, setWorkPosition)}
+                    onMouseLeave={() => handleMouseLeave(setWorkPosition)}
+                    style={{
+                      transform: `translate(${workPosition.x * 0.1}px, ${workPosition.y * 0.1}px)`,
+                      transition: "transform 0.1s ease-out",
+                    }}>
+                    More work<BsBoxArrowUpRight style={{ marginLeft: "6px" }} />
+            </button>
+        </Link>
+      </div>
 
 
 

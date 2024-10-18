@@ -196,17 +196,16 @@ nav ul li a:hover{
     position: absolute;
     justify-content: center;
     top: 55px;
-    right: 70px;
     left: auto;
     box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.089);
     width: fit-content;
     height: 30vh !important;
     text-align: center;
-    transition: 0.8s ease;
+    transition: 1s ease;
     border-radius: 16px;
     z-index: 2;
     padding: 0; 
-
+    animation: slideIn 1s ease forwards;
   }
 
   .navbar nav ul li {
@@ -240,6 +239,9 @@ nav ul li a:hover{
   .menu-open .menu {
     display: none;
   }
+
+  
+  
 }
 
 @media (max-width: 860px) {
