@@ -1,6 +1,6 @@
 import "../Style/404.css"
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NoPage = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -16,6 +16,10 @@ const NoPage = () => {
     const handleMouseLeave = () => {
         setPosition({ x: 0, y: 0 });
     };
+
+    useEffect(() => {
+        document.title = "Error - Jarell Tamonte";
+      }, []);
 
     return (
         <div className="outer-layer">

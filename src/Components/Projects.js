@@ -1,34 +1,68 @@
+import React, { useEffect, useState } from "react";
+import { items } from "../Data/Items";
+import "../Style/Projects.css"
+
 const Projects = () => {
-    return (
-      <div className="App">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h3>Hi, I am <span className="name">Jarell</span></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aperiam rem modi iusto repellendus dolor perspiciatis saepe, laboriosam cupiditate mollitia corporis cum, aliquid nam cumque aliquam totam accusamus enim.</p>
-              <button type="button" className="downloadButton">Download CV</button>
-            </div>
-            <div className="col" id="imagebord">
-              <span className="extratext" id="greetings1">Nice to meet you!</span>
-              <span className="extratext" id="clickme">Click the image to get to know me!</span>
-              <span className="extratext" id="greetings2">Greetings!</span>
-            </div>
-          </div>
-  
-          <div className="marquee">
-            <h1>
-              <div className="marquee-wrapper">
-                <div className="marquee-title"><span className="text-stroke-black">SOFTWARE ENGINEER</span> AND <span className="text-stroke-black">DATA SCIENTIST</span> AND</div>
-              </div>
-              <div className="marquee-wrapper">
-                <div className="marquee-title"><span className="text-stroke-black">SOFTWARE ENGINEER</span> AND <span className="text-stroke-black">DATA SCIENTIST</span> AND</div>
-              </div>
-            </h1>
-          </div>
-        </div>
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [filteredItems, setFilteredItems] = useState(items);
+
+  let filters = ["Website", "Mobile App", "Filter"];
+
+  const handleFilterButtonClick = (selectedCategory) => {
+    if (selectedFilters.includes(selectedCategory)) {
+      let filters = selectedFilters.filter((el) => el !== selectedCategory);
+      setSelectedFilters(filters);
+    } else {
+      setSelectedFilters([...selectedFilters, selectedCategory]);
+    }
+  };
+
+  useEffect(() => {
+    filterItems();
+  }, [selectedFilters]);
+
+  useEffect(() => {
+    document.title = "Works - Jarell Tamonte";
+  }, []);
+
+  const filterItems = () => {
+    if (selectedFilters.length > 0) {
+      let tempItems = selectedFilters.map((selectedCategory) => {
+        let temp = items.filter((item) => item.category === selectedCategory);
+        return temp;
+      });
+      setFilteredItems(tempItems.flat());
+    } else {
+      setFilteredItems([...items]);
+    }
+  };
+
+  return (
+    <div className="project-app">
+      <p className="project-title">Creating next level digital products</p>
+      <div className="buttons-container">
+        {filters.map((category, idx) => (
+          <button
+            onClick={() => handleFilterButtonClick(category)}
+            className={`button-work ${
+              selectedFilters?.includes(category) ? "active" : ""
+            }`}
+            key={`filters-${idx}`}
+          >
+            {category}
+          </button>
+        ))}
       </div>
-    );
-  }
-  
-  export default Projects;
-  
+
+      <div className="items-container">
+        {filteredItems.map((item, idx) => (
+          <div key={`items-${idx}`} className="item">
+            <p className="item-name">{item.name}</p>
+            <p className="category">{item.category}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+export default Projects;

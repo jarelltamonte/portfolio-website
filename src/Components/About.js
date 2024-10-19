@@ -1,7 +1,7 @@
 import me from "../images/Jarell Tamonte.jpg"
 import jarell from "../images/mepic.jpg"
 import "../Style/About.css"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 const About = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -22,6 +22,10 @@ const About = () => {
   const handleMouseLeave = (setPosition) => {
     setPosition({ x: 0, y: 0 });
   };
+
+  useEffect(() => {
+    document.title = "About - Jarell Tamonte";
+  }, []);
 
   return (
     <>

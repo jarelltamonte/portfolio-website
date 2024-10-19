@@ -29,6 +29,10 @@ const Contact = () => {
   const handleMouseLeave = (setPosition) => {
     setPosition({ x: 0, y: 0 });
   };
+
+  useEffect(() => {
+    document.title = "Contact - Jarell Tamonte";
+  }, []);
   
 
   return (
