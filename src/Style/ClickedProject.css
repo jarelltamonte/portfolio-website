@@ -1,0 +1,235 @@
+.project-info{
+    height: fit-content;
+    min-height: 80vh;
+    width: fit-content;
+    padding: 3% 8%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-arrow{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-arrow{
+    margin-bottom: 3%;
+    transform: rotate(-45deg);
+    margin-top: 4%;
+}
+
+.next-arrow:hover{
+    transform: rotate(-50deg);
+}
+
+.prev-arrow{
+    margin-bottom: 3%;
+    transform: rotate(135deg);
+    margin-top: 4%;
+}
+
+.prev-arrow:hover{
+    transform: rotate(140deg);
+}
+
+.item-desc1{
+    margin-top: 5%;
+    margin-bottom: 35%;
+    user-select: none;
+}
+
+.items{
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding-right: 4%;
+}
+
+.proj-title{
+    color: #ECE5D3;
+    font-size: 32px;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.proj-image{
+    width: 100%;
+    height: 350px;
+    margin-bottom: 5%;
+    background-size: cover;
+}
+
+.proj-description{
+    font-size: 14px;
+    text-align: justify;
+    user-select: none;
+}
+
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    max-height: 400px; 
+    overflow: hidden;
+    border-radius: 12px;
+    user-select: none;
+}
+  
+.collage {
+    display: grid;
+    gap: 8px;
+    
+}
+  
+.collage.layout-1 {
+    grid-template-columns: 1fr;
+}
+  
+.collage.layout-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+  
+.collage.layout-3 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "a b"
+    "a c";
+}
+  
+.collage.layout-3 img:nth-child(1) {
+    grid-area: a;
+}
+.collage.layout-3 img:nth-child(2) {
+    grid-area: b;
+}
+.collage.layout-3 img:nth-child(3) {
+    grid-area: c;
+}
+  
+.collage.layout-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+  
+.collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.technologies-list{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1%;
+    margin-bottom: 3%;
+    user-select: none;
+}
+
+.technologies{
+    font-size: 14px;
+    border-radius: 14px;
+    padding: 1%;
+    background-color: rgba(255, 255, 255, 0.050); 
+    backdrop-filter: blur(8px);
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: #ECE5D3;
+}
+
+.technologies-list1, .proj-description1, .div-arrow1{
+    display: none;
+}
+
+.error-message{
+    height: 70vh;
+    padding: 4% 8%;
+    display: flex;
+    gap: 50%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pnf{
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #ECE5D3;
+    margin-bottom: 2%;
+}
+
+.pnfm{
+    font-size: 14px;
+    color: gray;
+}
+
+@media (max-width: 560px){
+    .error-message{
+        gap: 40%;
+    }
+}
+
+@media (max-width: 460px){
+    .image-gallery{
+        max-height: 250px; 
+        border-radius: 12px;
+        height: 100%;
+    }
+    .project-info{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .technologies{
+        font-size: 14px;
+        padding: 1.5%;
+    }
+    .technologies-list1, .proj-description1, .div-arrow1{
+        display: block;
+    }
+
+    .technologies-list, .proj-description, .div-arrow{
+        display: none;
+    }
+    .image-gallery{
+        width: 100%;
+    }
+
+    .items{
+        width: 100%;
+        padding-right: 0;
+    }
+    .item-desc1{
+        margin-bottom: 5%;
+    }
+    .technologies-list1{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1%;
+        margin: 3% 0;
+        user-select: none;
+    }
+
+    .proj-description1{
+        width: 100%;
+        margin-bottom: 5%;
+    }
+    .div-arrow1{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .error-message{
+        gap: 30%;
+    }
+}

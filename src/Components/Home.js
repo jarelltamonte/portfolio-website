@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import {items} from "./projectsData"
+
 
 const Home = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -86,6 +90,7 @@ const Home = () => {
     };
   }, []);
 
+
   return (
     <>
       <div className="first-section">
@@ -114,6 +119,13 @@ const Home = () => {
                 <button type="button" className="downloadButton" 
                   onMouseMove={(e) => handleMouseMove(e, setResumePosition)}
                   onMouseLeave={() => handleMouseLeave(setResumePosition)}
+                  onClick={() => {
+                    document.title = "Viewing Resumé..."; 
+                    window.open(require("../cv/Jarell Tamonte CV.pdf"), "_blank"); 
+                    setTimeout(() => {
+                      document.title = "Jarell Tamonte · Portfolio"; 
+                    }, 2000);
+                  }}
                   style={{
                     transform: `translate(${resumePosition.x * 0.1}px, ${resumePosition.y * 0.1}px)`,
                     transition: "transform 0.1s ease-out",
@@ -138,7 +150,7 @@ const Home = () => {
       <div className="second-section">
         <div className="about-content">
         <Link to="/about">
-          <div className="circle-about" 
+          <div className="circle-about show-cont" 
             onMouseMove={(e) => handleMouseMove(e, setPosition)}
             onMouseLeave={() => handleMouseLeave(setPosition)}
             style={{
@@ -148,9 +160,9 @@ const Home = () => {
             <span className="about-circle-text"></span>
           </div>
         </Link>
-          <div className="vertical-line" ></div> {/* The vertical line */}
+          <div className="vertical-line show-cont" ></div> {/* The vertical line */}
           <div className="about-text">
-            <p className="home-text-about">
+            <p className="home-text-about show-cont">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
               animi aperiam rem modi iusto repellendus dolor perspiciatis saepe.
             </p>
@@ -159,50 +171,40 @@ const Home = () => {
       </div>
 
       <div className="third-section">
-        <p className="gallery">Gallery</p>
+        <p className="gallery">Projects Gallery</p>
         <div className="third-first">
-          <div className="card-home">
-            <div className="card-image"></div>
-          </div>
-          <div className="card-home">
-            <div className="card-image"></div>
-          </div>
-          <div className="card-home">
-            <div className="card-image"></div>
-          </div>
-          <div className="card-home">
-            <div className="card-image"></div>
-          </div>
-
+          {items.slice(0, 4).map((item, idx) => (
+            <div key={`card-${idx}`} className="card-home">
+              <div className="card-image">
+                <img src={item.image[0]} alt={`Project ${idx + 1}`} className="card-img" />
+              </div>
+            </div>
+          ))}
         </div>
         <div className="third-second">
-          <div className="card-home">
-              <div className="card-image"></div>
+          {items.slice(4, 8).map((item, idx) => (
+            <div key={`card-2-${idx}`} className="card-home">
+              <div className="card-image">
+                <img src={item.image[0]} alt={`Project ${idx + 5}`} className="card-img" />
+              </div>
             </div>
-            <div className="card-home">
-              <div className="card-image"></div>
-            </div>
-            <div className="card-home">
-              <div className="card-image"></div>
-            </div>
-            <div className="card-home">
-              <div className="card-image"></div>
-            </div>
+          ))}
         </div>
         <Link to="/work" className="more-work">
-          <button type="button" className="workButton" 
-                    onMouseMove={(e) => handleMouseMove(e, setWorkPosition)}
-                    onMouseLeave={() => handleMouseLeave(setWorkPosition)}
-                    style={{
-                      transform: `translate(${workPosition.x * 0.1}px, ${workPosition.y * 0.1}px)`,
-                      transition: "transform 0.1s ease-out",
-                    }}>
-                    More work<BsBoxArrowUpRight style={{ marginLeft: "6px" }} />
-            </button>
+          <button
+            type="button"
+            className="workButton"
+            onMouseMove={(e) => handleMouseMove(e, setWorkPosition)}
+            onMouseLeave={() => handleMouseLeave(setWorkPosition)}
+            style={{
+              transform: `translate(${workPosition.x * 0.1}px, ${workPosition.y * 0.1}px)`,
+              transition: "transform 0.1s ease-out",
+            }}
+          >
+            More work <BsBoxArrowUpRight style={{ marginLeft: "6px" }} />
+          </button>
         </Link>
-      </div>
-
-
+      </div>`
 
     </>
   );

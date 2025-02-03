@@ -23,7 +23,7 @@ const NoPage = () => {
 
     return (
         <div className="outer-layer">
-            <h1 className="oops">Oops<span className="four">404!</span></h1>
+            <h1 className="oops">Oops...<span className="four">404!</span></h1>
             <Link to="/" style={{ textDecoration: 'none' }}>
                 <div className="circle-error" 
                     onMouseMove={handleMouseMove}

@@ -3,14 +3,35 @@
   flex-direction: column;
   height: fit-content;
   padding: 0 8%;
+  min-height: 90vh;
   overflow: hidden;
 }
 
-.project-title{
+.first-project{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faShape{
+  color: #ECE5D3;
+  font-size: 48px;
+  animation: autoRotateAnimation 2s linear infinite;;
+  
+}
+
+.project-title, .digi-prod{
     font-family: "italianno", cursive;
     font-size: 52px;
     color: #ECE5D3;
     padding: 3% 0;
+    user-select: none;
+}
+
+.digi-prod{
+  text-shadow: 2px 2px #000000;
+  font-weight: 500;
 }
 
 .buttons-container {
@@ -23,7 +44,7 @@
     background: transparent;
     margin: 5px 5px;
     border-radius: 36px;
-    padding: 2%;
+    padding: 1.5%;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-family: "inter", sans-serif;
@@ -32,6 +53,7 @@
     position: relative;  
     overflow: hidden;
     z-index: 1;
+    user-select: none;
   }
   
   .button-work::before {
@@ -53,26 +75,132 @@
   }
   
 .button-work:hover::before {
-    transform: scaleY(1); 
-    transform-origin: bottom;
- }
+  transform: scaleY(1); 
+  transform-origin: bottom;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+  padding: 4%;
+  width: 100%;
+  min-width: 100px;
+  min-height: 50px;
+  height: 40%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  border-top: 1px solid #75756b; 
+  border-bottom: 1px solid #75756b;
+  border-radius: 5px;
+}
+
+.item:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7); 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.item:hover .image-container {
+  opacity: 1;
+}
+
+
+.hovered-image {
+  position: fixed;
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-circle {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #000000; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+  pointer-events: none;
+  transition: transform 0.3s ease; 
+}
+
+
+.hovered-image:hover .view-circle {
+  transform: scale(1.1);
+}
+
 
 .items-container {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 5% 0;
+  cursor: pointer;
+  user-select: none;
 }
 
 .item-name{
-    font-size: 16px;
-    font-family: "inter", sans-serif;
-    font-weight: 400;
-    color: #ECE5D3;
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  color: #ECE5D3;
+  transition: transform 0.3s ease;
+  text-transform: uppercase;
 }
 
-.item {
+.item-name:hover{
+  transform: scale(1.1)
+}
+
+.item-desc{
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+p.year{
+  text-align: right;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+/* .item {
     padding: 4%;
     width: 315px; 
     height: 200px; 
@@ -84,7 +212,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
+
 
 .category {
   color: white;
@@ -99,11 +228,43 @@
 @media (max-width: 460px){
     .items-container{
         flex-direction: column;
-        padding: 10% 0;
+        padding: 6% 0;
+        overflow: hidden;
+    }
+
+    .item{
+      margin: 0;
+      width: 90%;
     }
 
     .project-title{
-        font-size: 46px;
-        line-height: 1;
+      font-size: 46px;
+      line-height: 1;
     }
+
+    .item-name{
+      font-size: 18px;
+    }
+
+    .faShape{
+      display: none;
+    }
+
+    .button-work{
+      padding: 2%;
+    }
+}
+
+@keyframes autoRotateAnimation {
+  0% {
+    transform: rotate(0deg);
+    color: #ECE5D3; /* Start color */
+  }
+  50% {
+    color: #75756b; /* Midpoint color change */
+  }
+  100% {
+    transform: rotate(360deg);
+    color: #ECE5D3; /* Smoothly transition back to the original color */
+  }
 }

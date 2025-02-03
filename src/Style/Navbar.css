@@ -7,12 +7,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f1f1e; /* Transparent initially */
+  background-color: #1f1f1e;
   padding: 1.5% 8%;
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: background-color 0.1s ease-in-out; /* Smooth transition */
+  transition: background-color 0.1s ease-in-out; 
+  user-select: none;
 }
 
 .navbar.scrolled {

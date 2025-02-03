@@ -166,8 +166,9 @@ body{
 
 .about-third-section{
     width: 100%;
-    height: 80vh;
+    height: fit-content;
     background-color: #1f1f1e;
+    overflow: hidden;
 }
 
 
@@ -199,21 +200,72 @@ body{
     width: 90%;
 }
 
-.block{
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+.block, .education{
+    animation: appear linear both;
+    animation-timeline: view(80% 5%);
     overflow: hidden;
 }
 
 .line-block{
-    animation: line-appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation: line-appear linear both;
+    animation-timeline: view(80% 5%);
     overflow: hidden;
 }
 
+.skills-overview{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 8%;
+}
 
+.text-overview{
+    font-size: 32px;
+    font-family: "italianno", sans-serif;
+    color: #ECE5D3;
+    user-select: none;
+}
+
+.the-skills{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    animation: autoShow both;
+    animation-timeline: view(90% 5%);
+}
+
+.soft-skill, .technical-skill{
+    height: 80%;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.050); 
+    backdrop-filter: blur(8px);
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    height: 50vh;
+    justify-items: center;
+    padding: 3%;
+    color: #ECE5D3;
+}
+
+
+.sub-title{
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    padding: 2%;
+    border-top: 1px solid #75756b; 
+    border-left: 1px solid #75756b; 
+    border-radius: 8px; 
+    text-align: center;
+    background-color: #1f1f1e;
+    user-select: none;
+    text-transform: uppercase;
+}
 
 @media (max-width: 1080px){
     .about-profile-pic{
@@ -301,6 +353,18 @@ body{
 
     .award{
         font-size: 10px;
+    }
+
+    .the-skills{
+        flex-direction: column;
+    }
+
+    .soft-skill{
+        margin-bottom: 5%;
+        width: 100%;
+    }
+    .technical-skill{
+        width: 100%;
     }
 
 }

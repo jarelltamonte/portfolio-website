@@ -37,8 +37,10 @@
 
 
 .right-side {
-    width: 45vw;
+    width: 35vw;
     flex-shrink: 0;
+    display: flex;
+    justify-content: end;
 }
 
 .small-pic{
@@ -153,24 +155,22 @@
 }
 
 a.more-work{
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
-    padding: 3% 8%;
+    padding: 3% 8% 0;
     display: flex;
     text-decoration: none;
-    display: none;
 }
 
 
 .profile-pic-container {
+    display: flex;
     position: relative;
-    width: 60%;
-    height: 60%;
-    margin-right: 0;
-    margin: 0 auto;
+    width: 70%;
+    height: 70%;
+    margin: 0;
     overflow: hidden;
-    justify-content: center;
 }
 
 span.typed-cursor{
@@ -231,6 +231,11 @@ span.typed-cursor{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.show-cont{
+    animation: autoShow both;
+    animation-timeline: view(90% 5%);
 }
 
 .about-content {
@@ -338,12 +343,17 @@ span.typed-cursor{
 }
   
 .card-home {
-    width: 315px; 
-    height: 200px; 
-    background-color: #D9D9D9;
+    width: 350px;
+    height: 230px;
+    background-color: rgba(255, 255, 255, 0.050); 
+    backdrop-filter: blur(8px);
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.25);
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
 .third-first {
@@ -352,9 +362,8 @@ span.typed-cursor{
     justify-content: space-between;
     height: fit-content;
     gap: 2%;
-    animation: cardf-appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 20%;
+    animation: cardf-appear linear both;
+    animation-timeline: view(95% 1%);
     overflow: hidden;
 }
 
@@ -365,19 +374,21 @@ span.typed-cursor{
     justify-content: space-between;
     height: fit-content;
     gap: 2%;
-    animation: cards-appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 15%;
+    animation: cards-appear linear both;
+    animation-timeline: view(95% 1%);
     overflow: hidden;
 }
 
 .card-image{
     background-color: #1f1f1e;
-    width: 90%; 
-    height: 90%;
+}
+
+.card-img{
+    width: 315px; 
+    height: 200px; 
+    background-size: cover;
 }
   
-
 @media (max-width: 1120px){
     .profile-pic-container {
         position: relative;
@@ -461,6 +472,7 @@ span.typed-cursor{
     }
     a.more-work{
         display: flex;
+        justify-content: center;
     }
 
 }
@@ -468,7 +480,7 @@ span.typed-cursor{
 
 @keyframes cardf-appear {
     from {
-      transform: translateX(-450px) scale(0.7);
+      transform: translateX(-250px) scale(0.9);
     }
     to {
       transform: translateX(0px) scale(1); 
@@ -477,10 +489,22 @@ span.typed-cursor{
 
 @keyframes cards-appear {
     from {
-        transform: translateX(400px) scale(0.7); 
+        transform: translateX(250px) scale(0.9); 
       }
     to {
       transform: translateX(0px) scale(1);
+    }
+    
+}
+
+@keyframes autoShow {
+    from{
+        opacity: 0;
+        transform: translateY(50px) scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
     
 }

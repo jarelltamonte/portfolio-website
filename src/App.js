@@ -10,6 +10,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Circle from './Components/Circle';
 import ScrollToTop from './Components/ScrollToTop';
+import ClickedProject from './Components/Clicked';
 
 export default function App() {
   const [isPreloaderDone, setIsPreloaderDone] = useState(false);
@@ -31,6 +32,8 @@ export default function App() {
             <Route path="work" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
+            <Route path="clicked/*" element={<NoPage />} />
+            <Route path="/clicked/:id" element={<ClickedProject />} />
           </Routes>
           <Footer />
         </BrowserRouter>

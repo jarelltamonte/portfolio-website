@@ -1,5 +1,4 @@
-import me from "../images/Jarell Tamonte.jpg"
-import jarell from "../images/mepic.jpg"
+import me from "../images/aboutt.jpeg"
 import "../Style/About.css"
 import {useState, useEffect} from "react"
 
@@ -10,6 +9,8 @@ const About = () => {
   const [c2Position, setC2Position] = useState({ x: 0, y: 0 });
   const [c3Position, setC3Position] = useState({ x: 0, y: 0 });
   const [c4Position, setC4Position] = useState({ x: 0, y: 0 });
+  const [s1Position, setS1Position] = useState({ x: 0, y: 0 });
+  const [s2Position, setS2Position] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e, setPosition) => {
     const rect = e.target.getBoundingClientRect();
@@ -117,13 +118,38 @@ const About = () => {
                 transition: "transform 0.1s ease-out",
               }}>
               <p className="school">DataCamp</p>
-              <p className="school-year">Present</p>
+              <p className="school-year">2024-2025</p>
               <p className="award">Data Science Student</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="about-third-section"></div>
+      <div className="about-third-section">
+        <div className="skills-overview">
+          <p className="text-overview">Skills Overview</p>
+            <div className="the-skills">
+              <div className="soft-skill">
+                <p className="sub-title"
+                  onMouseMove={(e) => handleMouseMove(e, setS1Position)}
+                  onMouseLeave={() => handleMouseLeave(setS1Position)}
+                  style={{
+                    transform: `translate(${s1Position.x * 0.1}px, ${s1Position.y * 0.1}px)`,
+                    transition: "transform 0.1s ease-out",
+                  }}>Soft Skills</p>
+              </div>
+              <div className="technical-skill">
+                <p className="sub-title"
+                onMouseMove={(e) => handleMouseMove(e, setS2Position)}
+                onMouseLeave={() => handleMouseLeave(setS2Position)}
+                style={{
+                  transform: `translate(${s2Position.x * 0.1}px, ${s2Position.y * 0.1}px)`,
+                  transition: "transform 0.1s ease-out",
+                }}>Technical Skills</p>
+              </div>
+            </div>
+          </div>
+            
+      </div>
     </>
      
   )
